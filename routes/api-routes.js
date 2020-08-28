@@ -50,4 +50,27 @@ module.exports = function(app) {
       });
     }
   });
+
+  //Route getting all habits for a specific user
+  app.get("/api/habit_data/:user/", (req, res) => {
+    // db.Habit.findAll().then(habits => res.json(habits));
+    db.Habit.findAll({
+      where: {
+        UserId: req.params.user
+      }
+    }).then(habits => {
+      res.json(habits);
+    });
+  });
+
+  app.get("/api/habit_data/:user/:id/", (req, res) => {
+    db.Habit.findAll({
+      where: {
+        UserId: req.params.user,
+        id: req.params.id
+      }
+    }).then(habits => {
+      res.json(habits);
+    });
+  });
 };
