@@ -63,8 +63,40 @@ module.exports = function(app) {
     });
   });
 
+  //Route getting specific habit for a user
   app.get("/api/habit_data/:user/:id/", (req, res) => {
     db.Habit.findAll({
+      where: {
+        UserId: req.params.user,
+        id: req.params.id
+      }
+    }).then(habits => {
+      res.json(habits);
+    });
+  });
+
+  //POST Route for saving a new habit
+  app.post("/api/habit_data", (req, res) => {
+    db.Habit.create(req.body).then(habits => {
+      res.json(habits);
+    });
+  });
+
+  //DELETE Route for deleting a habit
+  app.delete("/api/habit_data/:user/:id", (req, res) => {
+    db.Habit.destroy({
+      where: {
+        UserId: req.params.user,
+        id: req.params.id
+      }
+    }).then(habits => {
+      res.json(habits);
+    });
+  });
+
+  //PUT Route for updating a habit
+  app.delete("/api/habit_data/:user/:id", (req, res) => {
+    db.Habit.update(req.body, {
       where: {
         UserId: req.params.user,
         id: req.params.id
