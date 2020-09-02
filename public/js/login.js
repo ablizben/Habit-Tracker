@@ -36,4 +36,7 @@ $(document).ready(() => {
         console.log(err);
       });
   }
+  const NowMoment = moment();
+  const eDisplayMoment = $("#currentDay");
+  $(eDisplayMoment).html(NowMoment.format("dddd, MMMM Do YYYY"));
 });
