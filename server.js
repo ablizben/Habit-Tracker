@@ -8,6 +8,13 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
+const Handlebars = require("express-handlebars");
+// const router = express.Router();
+
+//Figure this out
+// const { createContent, getContent } = require('./controllers/content.controller');
+// const { getDashboard } = require("./controllers/dashboard.controller");
+
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -20,9 +27,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.engine("handlebars", Handlebars({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Requiring our routes
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
+
+//Change routes for project route
+// router.get('/dashboard', getDashboard);
+// router.get('/content/:slug?', getContent);
+// router.post('/content', createContent);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(() => {
