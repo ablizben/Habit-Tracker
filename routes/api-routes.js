@@ -94,15 +94,18 @@ module.exports = function(app) {
     });
   });
 
-  //PUT Route for updating a habit
-  app.delete("/api/habit_data/:user/:id", (req, res) => {
-    db.Habit.update(req.body, {
-      where: {
-        UserId: req.params.user,
-        id: req.params.id
+  //PUT Route for updating a habit's completed field
+  app.put("/api/habit_data/:user/:id", (req, res) => {
+    db.Habit.update(
+      { completed: true },
+      {
+        where: {
+          UserId: req.params.user,
+          id: req.params.id
+        }
       }
-    }).then(habits => {
-      res.json(habits);
+    ).then(habitUpdated => {
+      res.json(habitUpdated);
     });
   });
 };
