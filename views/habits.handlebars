@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Habits App </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="./habits.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <script src="./habits.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">The Habit Tracker</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="col-md-12">
+        <h3>Your Habits</h3>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <!-- //ADD HABITS -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT<h4>
+                                <hr>
+                                <form>
+                                    <div class="form-group">
+                                        <input class="form-control" id="newBurgerName" type="text"
+                                            placeholder="Enter your new habit">
+                                        <br>
+                                        <button type="button" class="btn btn-info" id="createHabit">Create
+                                            Habit</button>
+                                    </div>
+                                </form>
+                    </div>
+                </div>
+            </div>
+            <!-- //HABITS WILL SHOW UP IF THEY ARE ENTERED -->
+            <div class="col-md-4" id="cardOne">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">NAME OF HABIT</h4>
+                        <hr>
+                        <ul class="list-unstyled">
+                            {{#each burgers}} {{#unless devoured}} {{> burgers/burgers-block devoured=true}} {{/unless}}
+                            {{/each}}
+                        </ul>
+                        <button type="button" class="btn btn-info" id="deleteHabit">Delete Habit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
