@@ -8,7 +8,6 @@ const passport = require("./config/passport");
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
 
-const Handlebars = require("express-handlebars");
 // const router = express.Router();
 
 //Figure this out
