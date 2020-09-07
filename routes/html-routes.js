@@ -37,6 +37,6 @@ module.exports = function(app) {
   //   }).then(habits => {
   //     res.render("habits", { habits: habits });
   //   });
-    //database something
-  });
+  //   //database something
+  // });
 };
