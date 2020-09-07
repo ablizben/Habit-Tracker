@@ -36,9 +36,6 @@ $(document).ready(() => {
         console.log(err);
       });
   }
-  // const NowMoment = moment();
-  // const eDisplayMoment = $("#currentDay");
-  // $(eDisplayMoment).html(NowMoment.format("dddd, MMMM Do YYYY"));
 
   // Getting references to our form and input
   const signUpForm = $("form.signup");
@@ -86,7 +83,7 @@ $(document).ready(() => {
     const userId = data.id;
 
     // Getting references to the name input and habit container, as well as the table body
-    const nameInput = $("#habit-name");
+    const nameInput = $("#habitName");
     const habitList = $("tbody");
     const habitContainer = $(".habit-container");
 
@@ -95,7 +92,7 @@ $(document).ready(() => {
     $(document).on("click", ".delete-habit", handleDeleteButtonPress);
 
     //Getting the initial list of habits
-    gethabits();
+    getHabits();
 
     // A function to handle what happens when the form is submitted to create a new Habit
     function handleHabitFormSubmit(event) {
@@ -115,9 +112,10 @@ $(document).ready(() => {
       });
     }
 
-    // A function for creating a habit. Calls getHabits upon completion
+    // A function for creating a habit. Calls H upon completion
     function upsertHabit(habitData) {
-      $.post("/api/habit_data", habitData).then(getHabits);
+      console.log({ habitData });
+      $.post("/api/insert_habit", habitData).then(getHabits);
     }
 
     // Function for retrieving habits for a user and getting them ready to be rendered to the page
@@ -145,7 +143,7 @@ $(document).ready(() => {
         console.log(rows);
         habitList.prepend(rows);
       } else {
-        renderEmpty();
+        //renderEmpty();
       }
     }
 

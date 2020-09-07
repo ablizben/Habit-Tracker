@@ -11,6 +11,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       default: false,
       allowNull: false
+    },
+    //not necessary (I think):
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     }
   });
 

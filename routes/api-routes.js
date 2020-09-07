@@ -82,6 +82,29 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/insert_habit", (req, res) => {
+    //req.body = {
+    //  name: "hobbit"
+    //}
+
+    console.log("id: " + req.body.userId);
+    console.log("insert new habit: " + req.body.name);
+    console.log("req.user: ", req.user);
+
+    // if(!req.user){
+    //   return res.status(401)
+    // }
+
+    db.Habit.create({
+      name: req.body.name,
+      completed: 0,
+      // UserId: 1,
+      UserId: req.user.id
+    }).then(() => {
+      res.redirect(301, "/habits");
+    });
+  });
+
   //DELETE Route for deleting a habit
   app.delete("/api/habit_data/:user/:id", (req, res) => {
     db.Habit.destroy({
