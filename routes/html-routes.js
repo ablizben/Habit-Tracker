@@ -25,19 +25,18 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  // app.get("/habits", isAuthenticated, (req, res) => {
-  //   res.render("habits");
-  // });
-
-  // app.get("/habits", (req, res) => {
   app.get("/habits", isAuthenticated, (req, res) => {
-    db.Habit.findAll({
-      where: {
-        UserId: req.user.id
-      }
-    }).then(habits => {
-      res.render("habits", { habits: habits });
-    });
+    res.render("habits");
+  });
+
+  // app.get("/habits", isAuthenticated, (req, res) => {
+  //   db.Habit.findAll({
+  //     where: {
+  //       UserId: req.user.id
+  //     }
+  //   }).then(habits => {
+  //     res.render("habits", { habits: habits });
+  //   });
     //database something
   });
 };
