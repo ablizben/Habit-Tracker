@@ -82,6 +82,29 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/insert_habit", (req, res) => {
+    //req.body = {
+    //  name: "hobbit"
+    //}
+
+    console.log("id: " + req.body.userId);
+    console.log("insert new habit: " + req.body.name);
+    console.log("req.user: ", req.user);
+
+    // if(!req.user){
+    //   return res.status(401)
+    // }
+
+    db.Habit.create({
+      name: req.body.name,
+      completed: 0,
+      // UserId: 1,
+      UserId: req.user.id
+    }).then(() => {
+      res.redirect(301, "/habits");
+    });
+  });
+
   //DELETE Route for deleting a habit
   app.delete("/api/habit_data/:user/:id", (req, res) => {
     db.Habit.destroy({
@@ -94,15 +117,18 @@ module.exports = function(app) {
     });
   });
 
-  //PUT Route for updating a habit
-  app.delete("/api/habit_data/:user/:id", (req, res) => {
-    db.Habit.update(req.body, {
-      where: {
-        UserId: req.params.user,
-        id: req.params.id
+  //PUT Route for updating a habit's completed field
+  app.put("/api/habit_data/:user/:id", (req, res) => {
+    db.Habit.update(
+      { completed: true },
+      {
+        where: {
+          UserId: req.params.user,
+          id: req.params.id
+        }
       }
-    }).then(habits => {
-      res.json(habits);
+    ).then(habitUpdated => {
+      res.json(habitUpdated);
     });
   });
 };
