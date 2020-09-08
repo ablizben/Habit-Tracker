@@ -9,15 +9,13 @@ Our habit tracker is an app that allows the user to add and track habits they ar
 ## User story
 
 ``` 
-    As a person that wants to cultivate new habits to improve my well-being in 1 or more health areas 
-    (financial, physical, emotional, etc)
+    As a person that wants to cultivate new habits to improve my well-being in 1 or more health 
+    areas (financial, physical, emotional, etc)
 
     I want to capture and measure my habits and visualize them
 
     so that I can assess whether my habits are meeting the health goals I have set for myself.
 
-    Additionally I want the option to use pre-defined habits to track and also have options to 
-    design my own habits to track with customizable parameters.
 
 ```
 
