@@ -112,8 +112,8 @@ module.exports = function(app) {
         UserId: req.params.user,
         id: req.params.id
       }
-    }).then(() => {
-      res.redirect(301, "/habits");
+    }).then(habits => {
+      res.json(habits);
     });
   });
 
