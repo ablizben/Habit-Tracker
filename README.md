@@ -2,20 +2,22 @@
 
 ## Description
 
-Our habit tracker is an app that allows the user to add and track habits they are trying to create. It allows the user to see a weekly view of what habits were done on a daily or weekly basis.
+Our habit tracker is an app that allows the user to add and track habits they are trying to create. It allows the user to see a weekly view of what habits were done on a daily basis. 
 
-![](public/img/project%20display2.png) ***PICTURES OF APP HERE***
+![](demoscreenshot.png)
 
 ## User story
 
 ``` 
-    As a person that wants to cultivate new habits to improve my well-being in 1 or more health areas (financial, physical, emotional, etc)
+    As a person that wants to cultivate new habits to improve my well-being in 1 or more health areas 
+    (financial, physical, emotional, etc)
 
     I want to capture and measure my habits and visualize them
 
     so that I can assess whether my habits are meeting the health goals I have set for myself.
 
-    Additionally I want the option to use pre-defined habits to track and also have options to design my own habits to track with customizable parameters.
+    Additionally I want the option to use pre-defined habits to track and also have options to 
+    design my own habits to track with customizable parameters.
 
 ```
 
@@ -24,8 +26,7 @@ Our habit tracker is an app that allows the user to add and track habits they ar
 * [Installation](#Installation)
 * [Built With](#Usage) 
 * [Contributors](#Contributors) 
-* [License](#License) 
-* [Test](#Test)
+
 
 ## Installation
 
