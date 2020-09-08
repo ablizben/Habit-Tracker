@@ -147,26 +147,26 @@ $(document).ready(() => {
       }
     }
 
-    // Function for handling what happens when the delete button is pressed
-    function handleDeleteButtonPress() {
-      deleteHabit();
-      // const habitData = $(this)
-      //   .parent("td")
-      //   .parent("tr")
-      //   .data("habit");
-      // console.log(habitData);
-      // $.delete("/api/habit_data/" + userId + "/" + id, data => {
-      //   // console.log(data);
-      // }).then(getHabits);
-    }
+    // // Function for handling what happens when the delete button is pressed
+    // function handleDeleteButtonPress() {
+    //   deleteHabit();
+    //   // const habitData = $(this)
+    //   //   .parent("td")
+    //   //   .parent("tr")
+    //   //   .data("habit");
+    //   // console.log(habitData);
+    //   // $.delete("/api/habit_data/" + userId + "/" + id, data => {
+    //   //   // console.log(data);
+    //   // }).then(getHabits);
+    // }
 
-    function deleteHabit() {
-      console.log(this.value);
-      const id = $(this).value;
-      $.ajax({
-        method: "DELETE",
-        url: "/api/habit_data/" + userId + "/" + id
-      }).then();
-    }
+    // function deleteHabit() {
+    //   console.log(this.value);
+    //   const id = $(this).value;
+    //   $.ajax({
+    //     method: "DELETE",
+    //     url: "/api/habit_data/" + userId + "/" + id
+    //   }).then();
+    // }
   });
 });
