@@ -89,14 +89,14 @@ $(document).ready(() => {
 
     //Event listener to create and delete habit objects
     $(document).on("submit", "#add-habit", handleHabitFormSubmit);
-    $(document).on("click", "#deleteHabit", handleDeleteButtonPress);
+    $(document).on("click", ".delete-habit", handleDeleteButtonPress);
 
     //Getting the initial list of habits
     getHabits();
 
     // A function to handle what happens when the form is submitted to create a new Habit
-    function handleHabitFormSubmit() {
-      // event.preventDefault();
+    function handleHabitFormSubmit(event) {
+      event.preventDefault();
       // Don't do anything if the name fields hasn't been filled out
       if (
         !nameInput
@@ -114,7 +114,7 @@ $(document).ready(() => {
 
     // A function for creating a habit. Calls H upon completion
     function upsertHabit(habitData) {
-      // console.log({ habitData });
+      console.log({ habitData });
       $.post("/api/insert_habit", habitData).then(getHabits);
     }
 
@@ -149,24 +149,15 @@ $(document).ready(() => {
 
     // Function for handling what happens when the delete button is pressed
     function handleDeleteButtonPress() {
-      deleteHabit();
-      // const habitData = $(this)
-      //   .parent("td")
-      //   .parent("tr")
-      //   .data("habit");
-      // console.log(habitData);
-      // $.delete("/api/habit_data/" + userId + "/" + id, data => {
-      //   // console.log(data);
-      // }).then(getHabits);
-    }
-
-    function deleteHabit() {
-      console.log(this.value);
-      const id = $(this).value;
+      const habitData = $(this)
+        .parent("td")
+        .parent("tr")
+        .data("habit");
+      const id = habitData.id;
       $.ajax({
         method: "DELETE",
-        url: "/api/habit_data/" + userId + "/" + id
-      }).then();
+        url: "/api/habit_data/" + id
+      }).then(getHabits);
     }
   });
 });
