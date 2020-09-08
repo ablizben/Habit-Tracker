@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Quito18!",
+    "password": "F1gur30ut@bl3",
     "database": "habits_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
