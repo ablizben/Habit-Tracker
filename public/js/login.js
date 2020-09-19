@@ -91,9 +91,7 @@ $(document).ready(() => {
     $(document).on("submit", "#add-habit", handleHabitFormSubmit);
     $(document).on("click", ".delete-habit", handleDeleteButtonPress);
 
-    //Getting the initial list of habits
-    getHabits();
-
+  
     // A function to handle what happens when the form is submitted to create a new Habit
     function handleHabitFormSubmit(event) {
       event.preventDefault();
@@ -115,49 +113,39 @@ $(document).ready(() => {
     // A function for creating a habit. Calls H upon completion
     function upsertHabit(habitData) {
       console.log({ habitData });
-      $.post("/api/insert_habit", habitData).then(getHabits);
-    }
-
-    // Function for retrieving habits for a user and getting them ready to be rendered to the page
-    function getHabits() {
-      $.get("/api/habit_data/" + userId, data => {
-        console.log(data);
-
-        const rowsToAdd = [];
-        for (let i = 0; i < data.length; i++) {
-          rowsToAdd.push(createHabitRow(data[i++]));
-        }
-        renderHabitsList(rowsToAdd);
-        nameInput.val("");
+      $.post("/api/insert_habit", habitData).then(function() {
+        location.reload();
       });
-    }
-
-    // A function for rendering the list of habits to the page
-    function renderHabitsList(rows) {
-      habitList
-        .children()
-        .not(":last")
-        .remove();
-      habitContainer.children(".alert").remove();
-      if (rows.length) {
-        console.log(rows);
-        habitList.prepend(rows);
-      } else {
-        //renderEmpty();
-      }
     }
 
     // Function for handling what happens when the delete button is pressed
     function handleDeleteButtonPress() {
-      const habitData = $(this)
-        .parent("td")
-        .parent("tr")
-        .data("habit");
-      const id = habitData.id;
+      const habitData = $(this);
+
+      const id = habitData.data("id");
       $.ajax({
         method: "DELETE",
-        url: "/api/habit_data/" + id
-      }).then(getHabits);
+        url: "/api/habit_data/" + id,
+      }).then(function() {
+        window.location.reload();
+      });
     }
-  });
-});
+
+    //Function for handling update button
+    function handleUpdateButtonPress() {
+      const habitData = $(this);
+
+
+      console.log($(this));
+      const id = habitData.data("id");
+      $.ajax({
+        method: "PUT",
+        url: "/api/habit_data/" + id,
+      }).then(function() {
+        window.location.reload();
+      });
+    }
+  })
+})
+
+

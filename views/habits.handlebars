@@ -28,7 +28,7 @@
             <!-- //HABITS WILL SHOW UP IF THEY ARE ENTERED -->
             {{#each habits}}
             <div class="col-md-4">
-                <div class="card">
+                              <div class="card {{#if completed}} complete {{else}} incomplete {{/if}}">
                     <div class="card-body">
                         {{!-- {{#if completed}} --}}
                         <h4 class="card-title green">{{this.name}}</h4>
@@ -38,7 +38,10 @@
                         {{!-- {{/else}} --}}
                         <hr>
 
-                        <button type="button" class="btn btn-info" id="deleteHabit">COMPLETE</button>
+                        <button type="button" class="btn btn-info delete-habit" id="deleteHabit"
+                            data-UserId={{this.UserId}} data-id={{id}}>
+                            COMPLETE
+                        </button>
 
                     </div>
                 </div>
