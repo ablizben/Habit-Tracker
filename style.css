@@ -45,6 +45,14 @@ p {
   color: black;
 }
 
+.complete {
+  background-color: green;
+}
+
+.incomplete {
+  background-color: red;
+}
+
 h3 {
   font-size: 23px;
   text-align: center;
