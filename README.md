@@ -16,7 +16,6 @@ Our habit tracker is an app that allows the user to add and track habits they ar
 
     so that I can assess whether my habits are meeting the health goals I have set for myself.
 
-
 ```
 
 ## Table of Contents
@@ -45,7 +44,7 @@ If you'd like to get a copy of the project up and running on your local machine 
 
 ## Built With
 
-- [mySQL](https://www.mysql.com/)- structured query language Database
+- [mySQL](https://www.mysql.com/) - structured query language Database
 - [Node.js](https://nodejs.org/en/) - Javascript Runtime Environment
 - [Bootstrap](https://getbootstrap.com/) - CSS Framework
 - [npm](https://www.npmjs.com/) - Dependency management
